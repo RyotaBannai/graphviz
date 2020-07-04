@@ -1,6 +1,7 @@
 digraph ERD {
     graph [pad="0.5", nodesep="0.5", ranksep="2"];
-    node [shape=plain]
+    node [shape=plain, colorscheme=paired12]
+    edge [colorscheme=paired12, fontsize=11, fontname="Arial narrow"];
     rankdir=LR;
 
 
@@ -75,9 +76,9 @@ Folder [label=<
 User:1 -> UserMeta:7 [dir=both, arrowhead=dot, arrowtail=dot];
 UserMeta:7 -> Item:b [dir=both, arrowhead=dot, arrowtail=none, headlabel = "P", labeldistance=2, labelangle=45];
 
-Item:a -> ItemList:a [dir=both, arrowhead=dot, arrowtail=none, headlabel = "P", labeldistance=2 labelangle=45];
+Item:a -> ItemList:a [dir=both, arrowhead=dot, arrowtail=odiamond, headlabel = "P", labeldistance=2 labelangle=45];
 Item:g -> List:0 [dir=both, arrowhead=dot, arrowtail=dot, headlabel = "P - Item", taillabel = "P", labeldistance=3, labelangle=20];
-ItemList:b -> List:0 [dir=both, arrowhead=none, arrowtail=dot, taillabel = "P", labeldistance=2,  labelangle=20];
+ItemList:b -> List:0:nw [dir=both, arrowhead=odiamond, arrowtail=dot, taillabel = "P", labeldistance=2, labelangle=20];
 
 Folder:a -> Folder:d [dir=both, arrowhead=none, arrowtail=dot];
 }
