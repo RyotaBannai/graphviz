@@ -4,42 +4,80 @@ digraph ERD {
     rankdir=LR;
 
 
-Foo [label=<
+User [label=<
 <table border="0" cellborder="1" cellspacing="0">
-  <tr><td><i>Input Foo</i></td></tr>
-  <tr><td port="1">one</td></tr>
-  <tr><td port="2">two</td></tr>
-  <tr><td port="3">three</td></tr>
-  <tr><td port="4">four</td></tr>
-  <tr><td port="5">five</td></tr>
-  <tr><td port="6">six</td></tr>
+  <tr><td><i>User Table</i></td></tr>
+  <tr><td port="1">id</td></tr>
+  <tr><td port="2">name</td></tr>
+  <tr><td port="3">email</td></tr>
+  <tr><td port="4">passwordHash</td></tr>
+  <tr><td port="5">updated_at</td></tr>
+  <tr><td port="6">created_at</td></tr>
 </table>>];
 
 
-Bar [label=<
+UserMeta [label=<
 <table border="0" cellborder="1" cellspacing="0">
-  <tr><td><i>Input Bar</i></td></tr>
-  <tr><td port="7">seven</td></tr>
-  <tr><td port="8">eight</td></tr>
-  <tr><td port="9">nine</td></tr>
-  <tr><td port="10">ten</td></tr>
+  <tr><td><i>UserMeta Table</i></td></tr>
+  <tr><td port="7">userId</td></tr>
+  <tr><td port="8">firstName</td></tr>
+  <tr><td port="9">lastName</td></tr>
+  <tr><td port="10">age</td></tr>
+  <tr><td port="11">updated_at</td></tr>
+  <tr><td port="12">created_at</td></tr>
 </table>>];
 
 
-Baz [label=<
+List[label=<
 <table border="0" cellborder="1" cellspacing="0">
-  <tr><td><i>Output Baz</i></td></tr>
-  <tr><td port="a">alpha</td></tr>
-  <tr><td port="b">bravo</td></tr>
-  <tr><td port="c">charlie</td></tr>
-  <tr><td port="d">delta</td></tr>
-  <tr><td port="e">echo</td></tr>
-  <tr><td port="f">foxtrot</td></tr>
+  <tr><td><i>List Table</i></td></tr>
+  <tr><td port="0">id</td></tr>
+  <tr><td port="1">name</td></tr>
+  <tr><td port="2">updated_at</td></tr>
+  <tr><td port="3">created_at</td></tr>
 </table>>];
 
-Foo:2 -> Baz:a [arrowhead = crow];
-Foo:3 -> Baz:e;
-Foo:6 -> Baz:b;
-Bar:7 -> Baz:d;
-Bar:9 -> Baz:f;
+ItemList [label=<
+<table border="0" cellborder="1" cellspacing="0">
+  <tr><td><i>ItemList Table</i></td></tr>
+  <tr><td port="a">itemId</td></tr>
+  <tr><td port="b">listId</td></tr>
+  <tr><td port="c">type</td></tr>
+  <tr><td port="d">updated_at</td></tr>
+  <tr><td port="e">created_at</td></tr>
+</table>>];
+
+Item [label=<
+<table border="0" cellborder="1" cellspacing="0">
+  <tr><td><i>Item Table</i></td></tr>
+  <tr><td port="a">id</td></tr>
+  <tr><td port="b">userMetaUserId</td></tr>
+  <tr><td port="c">data</td></tr>
+  <tr><td port="d">type</td></tr>
+  <tr><td port="g">list</td></tr>
+  <tr><td port="e">updated_at</td></tr>
+  <tr><td port="f">created_at</td></tr>
+</table>>];
+
+Folder [label=<
+<table border="0" cellborder="1" cellspacing="0">
+  <tr><td><i>Folder Table</i></td></tr>
+  <tr><td port="a">id</td></tr>
+  <tr><td port="b">name</td></tr>
+  <tr><td port="c">description</td></tr>
+  <tr><td port="d">parentId</td></tr>
+  <tr><td port="e">updated_at</td></tr>
+  <tr><td port="f">created_at</td></tr>
+</table>>];
+
+// concentrate=true;
+// use concentrate=true or use option [dir=both]
+User:1 -> UserMeta:7 [dir=both, arrowhead=dot, arrowtail=dot];
+UserMeta:7 -> Item:b [dir=both, arrowhead=dot, arrowtail=none, headlabel = "P", labeldistance=2, labelangle=45];
+
+Item:a -> ItemList:a [dir=both, arrowhead=dot, arrowtail=none, headlabel = "P", labeldistance=2 labelangle=45];
+Item:g -> List:0 [dir=both, arrowhead=dot, arrowtail=dot, headlabel = "P - Item", taillabel = "P", labeldistance=3, labelangle=20];
+ItemList:b -> List:0 [dir=both, arrowhead=none, arrowtail=dot, taillabel = "P", labeldistance=2,  labelangle=20];
+
+Folder:a -> Folder:d [dir=both, arrowhead=none, arrowtail=dot];
 }
