@@ -123,6 +123,16 @@ Workspace [label=<
   <tr><td port="a">id</td></tr>
   <tr><td port="b">name</td></tr>
   <tr><td port="c">description</td></tr>
+  <tr><td port="d">ownerId</td></tr>
+  <tr><td port="e">updated_at</td></tr>
+  <tr><td port="f">created_at</td></tr>
+</table>>];
+
+WorkspaceAccess [label=<
+<table border="0" cellborder="1" cellspacing="0">
+  <tr><td><i>Workspace Table</i></td></tr>
+  <tr><td port="a">workspaceId</td></tr>
+  <tr><td port="d">userId</td></tr>
   <tr><td port="e">updated_at</td></tr>
   <tr><td port="f">created_at</td></tr>
 </table>>];
@@ -185,12 +195,16 @@ SetList:b -> List:0:sw [dir=both, arrowhead=dot, arrowtail=dot, taillabel = "P",
 List:0 -> ListFolder:a [dir=both, arrowhead=dot, arrowtail=dot, headlabel = "P", labeldistance=2, labelangle=20];
 List:0:ne -> ListWorkspace:a [dir=both, arrowhead=dot, arrowtail=dot, headlabel = "P",labeldistance=2, labelangle=20];
 Folder:a -> Folder:d [dir=both, arrowhead=none, arrowtail=dot];
-Folder:a -> ListFolder:b [dir=both, arrowhead=dot, arrowtail=dot, headlabel = "P", labeldistance=2, labelangle=20];
+Folder:a:ne -> ListFolder:b [dir=both, arrowhead=dot, arrowtail=dot, headlabel = "P", labeldistance=2, labelangle=20];
 Folder:a ->FolderWorkspace:a [dir=both, arrowhead=dot, arrowtail=dot, headlabel = "P",labeldistance=2, labelangle=20];
 
 
 Workspace:a -> ItemWorkspace:b [dir=both, arrowhead=dot, arrowtail=dot, headlabel = "P", labeldistance=2, labelangle=20];
 Workspace:a:se -> SetWorkspace:b [dir=both, arrowhead=dot, arrowtail=dot, headlabel = "P", labeldistance=2, labelangle=20];
-Workspace:a:n -> ListWorkspace:b [dir=both, arrowhead=dot, arrowtail=dot, headlabel = "P", labeldistance=2, labelangle=20];
+Workspace:a:s -> ListWorkspace:b [dir=both, arrowhead=dot, arrowtail=dot, headlabel = "P", labeldistance=2, labelangle=20];
 Workspace:a:ne -> FolderWorkspace:b [dir=both, arrowhead=dot, arrowtail=dot, headlabel = "P", labeldistance=2, labelangle=20];
+
+Workspace:d -> User:1 [dir=both, arrowhead=dot, arrowtail=dot, labeldistance=2, labelangle=20];
+Workspace:a:n -> WorkspaceAccess:a [dir=both, arrowhead=dot, arrowtail=dot, headlabel = "P",labeldistance=2, labelangle=20];
+User:1:ne -> WorkspaceAccess:b [dir=both, arrowhead=dot, arrowtail=dot, headlabel = "P",labeldistance=2, labelangle=20];
 }
