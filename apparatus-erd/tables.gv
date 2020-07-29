@@ -28,6 +28,65 @@ UserMeta [label=<
   <tr><td port="12">created_at</td></tr>
 </table>>];
 
+Item [label=<
+<table border="0" cellborder="1" cellspacing="0">
+  <tr><td><i>Item Table</i></td></tr>
+  <tr><td port="a">id</td></tr>
+  <tr><td port="b">userMetaUserId</td></tr>
+  <tr><td port="c">data</td></tr>
+  <tr><td port="d">type</td></tr>
+  <tr><td port="h">set</td></tr>
+  <tr><td port="g">list</td></tr>
+  <tr><td port="e">updated_at</td></tr>
+  <tr><td port="f">created_at</td></tr>
+</table>>];
+
+ItemMeta [label=<
+<table border="0" cellborder="1" cellspacing="0">
+  <tr><td><i>ItemMeta Table</i></td></tr>
+  <tr><td port="a">itemId</td></tr>
+  <tr><td port="b">description</td></tr>
+  <tr><td port="c">note</td></tr>
+  <tr><td port="d">updated_at</td></tr>
+  <tr><td port="e">created_at</td></tr>
+</table>>];
+
+ItemList [label=<
+<table border="0" cellborder="1" cellspacing="0">
+  <tr><td><i>ItemList Table</i></td></tr>
+  <tr><td port="a">itemId</td></tr>
+  <tr><td port="b">listId</td></tr>
+  <tr><td port="d">updated_at</td></tr>
+  <tr><td port="e">created_at</td></tr>
+</table>>];
+
+Set [label=<
+<table border="0" cellborder="1" cellspacing="0">
+  <tr><td><i>Set Table</i></td></tr>
+  <tr><td port="a">id</td></tr>
+  <tr><td port="b">name</td></tr>
+  <tr><td port="c">list</td></tr>
+  <tr><td port="e">updated_at</td></tr>
+  <tr><td port="f">created_at</td></tr>
+</table>>];
+
+ItemSet [label=<
+<table border="0" cellborder="1" cellspacing="0">
+  <tr><td><i>ItemSet Table</i></td></tr>
+  <tr><td port="a">itemId</td></tr>
+  <tr><td port="b">setId</td></tr>
+  <tr><td port="e">updated_at</td></tr>
+  <tr><td port="f">created_at</td></tr>
+</table>>];
+
+SetList [label=<
+<table border="0" cellborder="1" cellspacing="0">
+  <tr><td><i>SetList Table</i></td></tr>
+  <tr><td port="a">setId</td></tr>
+  <tr><td port="b">listId</td></tr>
+  <tr><td port="d">updated_at</td></tr>
+  <tr><td port="e">created_at</td></tr>
+</table>>];
 
 List[label=<
 <table border="0" cellborder="1" cellspacing="0">
@@ -36,28 +95,6 @@ List[label=<
   <tr><td port="1">name</td></tr>
   <tr><td port="2">updated_at</td></tr>
   <tr><td port="3">created_at</td></tr>
-</table>>];
-
-ItemList [label=<
-<table border="0" cellborder="1" cellspacing="0">
-  <tr><td><i>ItemList Table</i></td></tr>
-  <tr><td port="a">itemId</td></tr>
-  <tr><td port="b">listId</td></tr>
-  <tr><td port="c">type</td></tr>
-  <tr><td port="d">updated_at</td></tr>
-  <tr><td port="e">created_at</td></tr>
-</table>>];
-
-Item [label=<
-<table border="0" cellborder="1" cellspacing="0">
-  <tr><td><i>Item Table</i></td></tr>
-  <tr><td port="a">id</td></tr>
-  <tr><td port="b">userMetaUserId</td></tr>
-  <tr><td port="c">data</td></tr>
-  <tr><td port="d">type</td></tr>
-  <tr><td port="g">list</td></tr>
-  <tr><td port="e">updated_at</td></tr>
-  <tr><td port="f">created_at</td></tr>
 </table>>];
 
 Folder [label=<
@@ -71,14 +108,89 @@ Folder [label=<
   <tr><td port="f">created_at</td></tr>
 </table>>];
 
+ListFolder [label=<
+<table border="0" cellborder="1" cellspacing="0">
+  <tr><td><i>ListFolder Table</i></td></tr>
+  <tr><td port="a">listId</td></tr>
+  <tr><td port="a">FolderId</td></tr>
+  <tr><td port="e">updated_at</td></tr>
+  <tr><td port="f">created_at</td></tr>
+</table>>];
+
+Workspace [label=<
+<table border="0" cellborder="1" cellspacing="0">
+  <tr><td><i>Workspace Table</i></td></tr>
+  <tr><td port="a">id</td></tr>
+  <tr><td port="b">name</td></tr>
+  <tr><td port="c">description</td></tr>
+  <tr><td port="e">updated_at</td></tr>
+  <tr><td port="f">created_at</td></tr>
+</table>>];
+
+ItemWorkspace [label=<
+<table border="0" cellborder="1" cellspacing="0">
+  <tr><td><i>ItemWorkspace Table</i></td></tr>
+  <tr><td port="a">itemId</td></tr>
+  <tr><td port="b">workspaceId</td></tr>
+  <tr><td port="e">updated_at</td></tr>
+  <tr><td port="f">created_at</td></tr>
+</table>>];
+
+SetWorkspace [label=<
+<table border="0" cellborder="1" cellspacing="0">
+  <tr><td><i>SetWorkspace Table</i></td></tr>
+  <tr><td port="a">setId</td></tr>
+  <tr><td port="b">workspaceId</td></tr>
+  <tr><td port="e">updated_at</td></tr>
+  <tr><td port="f">created_at</td></tr>
+</table>>];
+
+ListWorkspace [label=<
+<table border="0" cellborder="1" cellspacing="0">
+  <tr><td><i>ListWorkspace Table</i></td></tr>
+  <tr><td port="a">listId</td></tr>
+  <tr><td port="b">workspaceId</td></tr>
+  <tr><td port="e">updated_at</td></tr>
+  <tr><td port="f">created_at</td></tr>
+</table>>];
+
+FolderWorkspace [label=<
+<table border="0" cellborder="1" cellspacing="0">
+  <tr><td><i>FolderWorkspace Table</i></td></tr>
+  <tr><td port="a">folderId</td></tr>
+  <tr><td port="b">workspaceId</td></tr>
+  <tr><td port="e">updated_at</td></tr>
+  <tr><td port="f">created_at</td></tr>
+</table>>];
+
+
 // concentrate=true;
 // use concentrate=true or use option [dir=both]
+
 User:1 -> UserMeta:7 [dir=both, arrowhead=dot, arrowtail=dot];
 UserMeta:7 -> Item:b [dir=both, arrowhead=dot, arrowtail=none, headlabel = "P", labeldistance=2, labelangle=45];
 
-Item:a -> ItemList:a [dir=both, arrowhead=dot, arrowtail=odiamond, headlabel = "P", labeldistance=2 labelangle=45];
-Item:g -> List:0 [dir=both, arrowhead=dot, arrowtail=dot, headlabel = "P - Item", taillabel = "P", labeldistance=3, labelangle=20];
-ItemList:b -> List:0:nw [dir=both, arrowhead=odiamond, arrowtail=dot, taillabel = "P", labeldistance=2, labelangle=20];
 
+Item:a:nw -> ItemMeta:a [dir=both, arrowhead=dot, arrowtail=dot, labeldistance=2, labelangle=20];
+Item:h -> ItemSet:a [dir=both, arrowhead=dot, arrowtail=dot, labeldistance=2, labelangle=20];
+Item:a:ne -> ItemWorkspace:a [dir=both, arrowhead=dot, arrowtail=dot, headlabel = "P",labeldistance=2, labelangle=20];
+Set:a:ne -> ItemSet:b [dir=both, arrowhead=dot, arrowtail=dot, headlabel = "P",labeldistance=2, labelangle=20];
+Item:a -> ItemList:a [dir=both, arrowhead=dot, arrowtail=none, headlabel = "P", labeldistance=2 labelangle=45];
+Item:g -> List:0 [dir=both, arrowhead=dot, arrowtail=dot, headlabel = "P", taillabel = "P", labeldistance=2, labelangle=20];
+Set:a:se -> SetList:a [dir=both, arrowhead=dot, arrowtail=dot, headlabel = "P", labeldistance=2, labelangle=20];
+Set:c -> List:0 [dir=both, arrowhead=dot, arrowtail=dot, headlabel = "P", taillabel = "P", labeldistance=2, labelangle=20];
+Set:a -> SetWorkspace:a [dir=both, arrowhead=dot, arrowtail=dot, headlabel = "P",labeldistance=2, labelangle=20];
+ItemList:b -> List:0:nw [dir=both, arrowhead=dot, arrowtail=dot, taillabel = "P", labeldistance=2, labelangle=20];
+SetList:b -> List:0:sw [dir=both, arrowhead=dot, arrowtail=dot, taillabel = "P", labeldistance=2, labelangle=20];
+List:0 -> ListFolder:a [dir=both, arrowhead=dot, arrowtail=dot, headlabel = "P", labeldistance=2, labelangle=20];
+List:0:ne -> ListWorkspace:a [dir=both, arrowhead=dot, arrowtail=dot, headlabel = "P",labeldistance=2, labelangle=20];
 Folder:a -> Folder:d [dir=both, arrowhead=none, arrowtail=dot];
+Folder:a -> ListFolder:b [dir=both, arrowhead=dot, arrowtail=dot, headlabel = "P", labeldistance=2, labelangle=20];
+Folder:a ->FolderWorkspace:a [dir=both, arrowhead=dot, arrowtail=dot, headlabel = "P",labeldistance=2, labelangle=20];
+
+
+Workspace:a -> ItemWorkspace:b [dir=both, arrowhead=dot, arrowtail=dot, headlabel = "P", labeldistance=2, labelangle=20];
+Workspace:a:se -> SetWorkspace:b [dir=both, arrowhead=dot, arrowtail=dot, headlabel = "P", labeldistance=2, labelangle=20];
+Workspace:a:n -> ListWorkspace:b [dir=both, arrowhead=dot, arrowtail=dot, headlabel = "P", labeldistance=2, labelangle=20];
+Workspace:a:ne -> FolderWorkspace:b [dir=both, arrowhead=dot, arrowtail=dot, headlabel = "P", labeldistance=2, labelangle=20];
 }

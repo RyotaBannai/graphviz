@@ -2,6 +2,7 @@
 
 Playground for drawing graphs specified in DOT language scripts.
 
+- [How to set up useful plugins for vs code](https://spin.atomicobject.com/2017/11/15/table-rel-diagrams-graphviz/)
 - [Arrow Shapes](http://graphviz.gitlab.io/doc/info/arrows.html)
 - how to handle overlapping edges?
   - `edge concentrators (concentrate=true)`: Merge multiple edges with a common endpoint into single edges, and have partially parallel edges share parts of their path.
